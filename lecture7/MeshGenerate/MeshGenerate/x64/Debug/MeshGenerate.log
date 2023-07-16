@@ -1,0 +1,8 @@
+﻿  GeneF.cpp
+G:\Mesoscience\level1\down\CFD\work\2022.4.23\MeshGenerate\MeshGenerate\GeneF.cpp(155,26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\Mesoscience\level1\down\CFD\work\2022.4.23\MeshGenerate\MeshGenerate\GeneF.cpp(156,29): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\Mesoscience\level1\down\CFD\work\2022.4.23\MeshGenerate\MeshGenerate\GeneF.cpp(233,27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\Mesoscience\level1\down\CFD\work\2022.4.23\MeshGenerate\MeshGenerate\GeneF.cpp(234,30): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  MeshGenerate.cpp
+  正在生成代码...
+  MeshGenerate.vcxproj -> G:\Mesoscience\level1\down\CFD\work\2022.4.23\MeshGenerate\x64\Debug\MeshGenerate.exe
