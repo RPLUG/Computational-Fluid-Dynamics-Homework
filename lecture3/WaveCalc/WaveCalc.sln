@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1585
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaveCalc", "WaveCalc\WaveCalc.vcxproj", "{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Debug|x64.ActiveCfg = Debug|x64
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Debug|x64.Build.0 = Debug|x64
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Debug|x86.ActiveCfg = Debug|Win32
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Debug|x86.Build.0 = Debug|Win32
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Release|x64.ActiveCfg = Release|x64
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Release|x64.Build.0 = Release|x64
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Release|x86.ActiveCfg = Release|Win32
+		{2AB968F2-C56E-4EB8-A8C1-3F4E8955378F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84A8B077-B6ED-4F77-A7AD-1F7A01BE8874}
+	EndGlobalSection
+EndGlobal
