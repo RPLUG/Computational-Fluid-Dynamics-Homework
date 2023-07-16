@@ -1,0 +1,55 @@
+%由先前计算得到粘性通量和无粘通量，进行RK推进，这里选用了三阶RK方法
+%记录U初值
+
+U0(:,:,1)=U(:,:,1);U0(:,:,3)=U(:,:,3);U0(:,:,3)=U(:,:,3);U0(:,:,4)=U(:,:,4);
+%一次
+BC;
+inviscous2;
+viscous;
+dUdt(:,:,1)=1./Scell.*((FluxVN(:,:,1)+FluxVE(:,:,1)+FluxVW(:,:,1)+FluxVS(:,:,1))-...
+    (Flux_N(:,:,1)+Flux_E(:,:,1)+Flux_W(:,:,1)+Flux_S(:,:,1)));
+dUdt(:,:,2)=1./Scell.*((FluxVN(:,:,2)+FluxVE(:,:,2)+FluxVW(:,:,2)+FluxVS(:,:,2))-...
+    (Flux_N(:,:,2)+Flux_E(:,:,2)+Flux_W(:,:,2)+Flux_S(:,:,2)));
+dUdt(:,:,3)=1./Scell.*((FluxVN(:,:,3)+FluxVE(:,:,3)+FluxVW(:,:,3)+FluxVS(:,:,3))-...
+    (Flux_N(:,:,3)+Flux_E(:,:,3)+Flux_W(:,:,3)+Flux_S(:,:,3)));
+dUdt(:,:,4)=1./Scell.*((FluxVN(:,:,4)+FluxVE(:,:,4)+FluxVW(:,:,4)+FluxVS(:,:,4))-...
+    (Flux_N(:,:,4)+Flux_E(:,:,4)+Flux_W(:,:,4)+Flux_S(:,:,4)));
+K1(:,:,1)=dUdt(:,:,1).*dt+U0(:,:,1);
+K1(:,:,2)=dUdt(:,:,2).*dt+U0(:,:,2);
+K1(:,:,3)=dUdt(:,:,3).*dt+U0(:,:,3);
+K1(:,:,4)=dUdt(:,:,4).*dt+U0(:,:,4);
+U(:,:,1)=K1(:,:,1);U(:,:,2)=K1(:,:,2);U(:,:,3)=K1(:,:,3);U(:,:,4)=K1(:,:,4);
+
+% 二次
+BC;
+inviscous2;
+viscous;
+dUdt(:,:,1)=1./Scell.*((FluxVN(:,:,1)+FluxVE(:,:,1)+FluxVW(:,:,1)+FluxVS(:,:,1))-...
+    (Flux_N(:,:,1)+Flux_E(:,:,1)+Flux_W(:,:,1)+Flux_S(:,:,1)));
+dUdt(:,:,2)=1./Scell.*((FluxVN(:,:,2)+FluxVE(:,:,2)+FluxVW(:,:,2)+FluxVS(:,:,2))-...
+    (Flux_N(:,:,2)+Flux_E(:,:,2)+Flux_W(:,:,2)+Flux_S(:,:,2)));
+dUdt(:,:,3)=1./Scell.*((FluxVN(:,:,3)+FluxVE(:,:,3)+FluxVW(:,:,3)+FluxVS(:,:,3))-...
+    (Flux_N(:,:,3)+Flux_E(:,:,3)+Flux_W(:,:,3)+Flux_S(:,:,3)));
+dUdt(:,:,4)=1./Scell.*((FluxVN(:,:,4)+FluxVE(:,:,4)+FluxVW(:,:,4)+FluxVS(:,:,4))-...
+    (Flux_N(:,:,4)+Flux_E(:,:,4)+Flux_W(:,:,4)+Flux_S(:,:,4)));
+K2(:,:,1)=0.75*U0(:,:,1)+0.25*(dUdt(:,:,1).*dt+K1(:,:,1));
+K2(:,:,2)=0.75*U0(:,:,2)+0.25*(dUdt(:,:,2).*dt+K1(:,:,2));
+K2(:,:,3)=0.75*U0(:,:,3)+0.25*(dUdt(:,:,3).*dt+K1(:,:,3));
+K2(:,:,4)=0.75*U0(:,:,4)+0.25*(dUdt(:,:,4).*dt+K1(:,:,4));
+U(:,:,1)=K2(:,:,1);U(:,:,2)=K2(:,:,2);U(:,:,3)=K2(:,:,3);U(:,:,4)=K2(:,:,4);
+% 三次
+BC;
+inviscous2;
+viscous;
+dUdt(:,:,1)=1./Scell.*((FluxVN(:,:,1)+FluxVE(:,:,1)+FluxVW(:,:,1)+FluxVS(:,:,1))-...
+    (Flux_N(:,:,1)+Flux_E(:,:,1)+Flux_W(:,:,1)+Flux_S(:,:,1)));
+dUdt(:,:,2)=1./Scell.*((FluxVN(:,:,2)+FluxVE(:,:,2)+FluxVW(:,:,2)+FluxVS(:,:,2))-...
+    (Flux_N(:,:,2)+Flux_E(:,:,2)+Flux_W(:,:,2)+Flux_S(:,:,2)));
+dUdt(:,:,3)=1./Scell.*((FluxVN(:,:,3)+FluxVE(:,:,3)+FluxVW(:,:,3)+FluxVS(:,:,3))-...
+    (Flux_N(:,:,3)+Flux_E(:,:,3)+Flux_W(:,:,3)+Flux_S(:,:,3)));
+dUdt(:,:,4)=1./Scell.*((FluxVN(:,:,4)+FluxVE(:,:,4)+FluxVW(:,:,4)+FluxVS(:,:,4))-...
+    (Flux_N(:,:,4)+Flux_E(:,:,4)+Flux_W(:,:,4)+Flux_S(:,:,4)));
+U(:,:,1)=1/3*U0(:,:,1)+2/3*(dUdt(:,:,1).*dt+K2(:,:,1));
+U(:,:,2)=1/3*U0(:,:,2)+2/3*(dUdt(:,:,2).*dt+K2(:,:,2));
+U(:,:,3)=1/3*U0(:,:,3)+2/3*(dUdt(:,:,3).*dt+K2(:,:,3));
+U(:,:,4)=1/3*U0(:,:,4)+2/3*(dUdt(:,:,4).*dt+K2(:,:,4));
